@@ -12,7 +12,29 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    res.json({ message: "get project by id here" })
+  } catch(err) { next(err) }
+});
 
+router.post('/', async (req, res, next) => {
+  try {
+    res.json({ message: "post project here" })
+  } catch(err) { next(err) }
+});
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    res.json({ message: "put project here" })
+  } catch(err) { next(err) }
+});
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    res.json({ message: "delete project here" })
+  } catch(err) { next(err) }
+});
 
 // Error Handling
 router.use((err, req, res, next) => { // eslint-disable-line
