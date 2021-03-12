@@ -36,7 +36,7 @@ router.put('/:id', validateProject, validateProjectId, async (req, res, next) =>
   } catch(err) { next(err) }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', validateProjectId, async (req, res, next) => {
   const { id } = req.params;
   
   try {
