@@ -39,14 +39,19 @@ router.put('/:id', validateUser, validateUserId, async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', validateUserId, async (req, res, next) => {
+  const { id } = req.params;
+
   try {
-    res.json({msg: "here delete"})
+    const deletedAction = await Actions.remove(id);
+    deletedAction
+      ? res.json({ message: `Action with id ${id} successfully deleted` })
+      : res.status(500).json({ message: "Deletion failed, please try again" })
   } catch(err) { next(err) }
 });
 
 // Error Handling
-router.use((err, req, res, next) => {
+router.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
     message: err.message,
     stack: err.stack,
