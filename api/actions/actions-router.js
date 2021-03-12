@@ -7,7 +7,31 @@ const router = express.Router();
 // Actions Endpoints
 router.get('/', async (req, res, next) => {
   try {
-    res.json({msg: "here"})
+    res.json({msg: "here get all"})
+  } catch(err) { next(err) }
+});
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    res.json({msg: "here get id"})
+  } catch(err) { next(err) }
+});
+
+router.post('/', async (req, res, next) => {
+  try {
+    res.json({msg: "here post"})
+  } catch(err) { next(err) }
+});
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    res.json({msg: "here put"})
+  } catch(err) { next(err) }
+});
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    res.json({msg: "here delete"})
   } catch(err) { next(err) }
 });
 
