@@ -24,9 +24,15 @@ router.post('/', validateProject, async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', validateProject, validateProjectId, async (req, res, next) => {
+  const { id } = req.params;
+  const projectToUpdate = req.body;
+
   try {
-    res.json({ message: "put project here" })
+    const updatedProject = await Projects.update(id, projectToUpdate);
+    updatedProject
+      ? res.status(200).json(updatedProject)
+      : res.status(500).json({ message: "Update failed, please try again" })
   } catch(err) { next(err) }
 });
 
