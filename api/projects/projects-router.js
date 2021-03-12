@@ -37,8 +37,13 @@ router.put('/:id', validateProject, validateProjectId, async (req, res, next) =>
 });
 
 router.delete('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  
   try {
-    res.json({ message: "delete project here" })
+    const deletedProject = await Projects.remove(id);
+    deletedProject
+      ? res.json({ message: `Project with id ${id} successfully deleted` })
+      : res.status(500).json({ message: "Deletion failed, please try again" })
   } catch(err) { next(err) }
 });
 
