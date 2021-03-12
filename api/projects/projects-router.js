@@ -47,6 +47,15 @@ router.delete('/:id', async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
+router.get('/:id/actions', validateProjectId, async (req, res, next) => {
+  const { id } = req.params;
+  
+  try {
+    const actions = await Projects.getProjectActions(id);
+    res.json(actions);
+  } catch(err) { next(err) }
+});
+
 // Error Handling
 router.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
