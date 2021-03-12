@@ -18,17 +18,17 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ### Task 1: Project Set Up
 
-- [ ] Fork and clone this repository. **If you are repeating this Course, delete your old fork from Github and re-fork and re-clone.**
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement the project on your newly created branch, committing changes regularly.
-- [ ] Push commits: `git push origin <firstName-lastName>`.
-- [ ] **RUN** `npm install` to install your dependencies.
+- [x] Fork and clone this repository. **If you are repeating this Course, delete your old fork from Github and re-fork and re-clone.**
+- [x] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [x] Implement the project on your newly created branch, committing changes regularly.
+- [x] Push commits: `git push origin <firstName-lastName>`.
+- [x] **RUN** `npm install` to install your dependencies.
 
 ### Task 2: CodeGrade Setup
 
-- [ ] Follow [instructions](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374) to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>` branch.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
-- [ ] Check to see that Codegrade has accepted your git submission.
+- [x] Follow [instructions](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374) to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>` branch.
+- [x] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
+- [x] Check to see that Codegrade has accepted your git submission.
 
 ### Task 3: Project Requirements (MVP)
 
@@ -38,27 +38,27 @@ Your finished project must include all of the following requirements:
 
 A _"test"_ script already exists you can use to run tests against your code.
 
-- [ ] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
-- [ ] Write an _npm script_ named _"server"_ that uses `nodemon`to run the API server.
-- [ ] Install _nodemon_ as a development dependency only that would not be used in production.
+- [x] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
+- [x] Write an _npm script_ named _"server"_ that uses `nodemon`to run the API server.
+- [x] Install _nodemon_ as a development dependency only that would not be used in production.
 
 #### Build an API
 
-- [ ] Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
+- [x] Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
   - `[GET] /api/actions` returns an array of actions (or an empty array) as the body of the _response_.
   - `[GET] /api/actions/:id` returns an action with the given `id` as the body of the _response_.
   - `[POST] /api/actions` returns the newly created action as the body of the _response_.
   - `[PUT] /api/actions/:id` returns the updated action as the body of the _response_.
   - `[DELETE] /api/actions/:id` returns no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
+- [x] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
   - `[GET] /api/projects` returns an array of projects (or an empty array) as the body of the response.
   - `[GET] /api/projects/:id` returns a project with the given `id` as the body of the _response_.
   - `[POST] /api/projects` returns the newly created project as the body of the _response_.
   - `[PUT] /api/projects/:id` returns the updated project as the body of the _response_.
   - `[DELETE] /api/projects/:id` returns no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
+- [x] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
   - `[GET] /api/projects/:id/actions` sends an array of actions (or an empty array) as the body of the response.
 
 - Both Projects and Actions have an optional `completed` property (see Database Schemas below). In both cases it's a boolean stored in the database as a 1 or a 0. Make sure to transform the raw `completed` values obtained from the db to `true` or `false`, before sending them back to the client.
@@ -125,22 +125,22 @@ After finishing your required elements, you can push your work further. These go
 
 - [ ] Deploy the API to Heroku.
 - [ ] Configure the API to support environment variables.
-- [ ] Use middleware for validation of incoming data.
+- [x] Use middleware for validation of incoming data.
 
 ## Submission format
 
-- [ ] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
-- [ ] Create a pull-request to merge `<firstName-lastName>` branch into main.
-- [ ] Check Codegrade for automated feedback.
-- [ ] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
-- [ ] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
+- [x] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
+- [x] Create a pull-request to merge `<firstName-lastName>` branch into main.
+- [x] Check Codegrade for automated feedback.
+- [x] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
+- [x] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+1. The core features of Node.js and Express and why they are useful. **Answer:** The core features of Node include its usage of JS for server-side operations (i.e. one language for both client-side and server-side), its vast npm library of modules and that it's single-threaded. It is also asynchronous and has OS privileges. Simply put, Node is a machine that can run JS programs. 
+1. Understand and explain the use of Middleware. **Answer:** Middleware are functions that get the request and response objects, can perform actions on them (or not), and can either move to the next operation or issue a response.
+1. The basic principles of the REST architectural style. **Answer:** In REST architecture, there are 5 key principles. Everything is a resource. Each resource is accessible via a unique URI. Resources can have multiple representations. Communication happens over a stateless protocol (HTTP). Resource management happens via HTTP methods.
+1. Understand and explain the use of Express Routers. **Answer:** Express is a Node framework that helps developers build web servers to answer HTTP requests. Express Routers are a way of organizing route components and exposing resources through endpoints in an API. Each route listens on a specific resource for requests with a specific HTTP verb.
+1. Describe tooling used to manually test the correctness of an API. **Answer:** There are several tools like Postman, HTTPie, Insomnia, curl and browsers to test the operability of an API. They function similarly with ways to construct requests, send them via HTTP and receive responses from the API.
