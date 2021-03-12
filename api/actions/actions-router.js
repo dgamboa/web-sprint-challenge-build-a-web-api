@@ -1,6 +1,7 @@
 // Write your "actions" router here!
 const express = require('express');
 const Actions = require('./actions-model');
+const { validateUserId } = require('../middleware/middleware');
 
 const router = express.Router();
 
@@ -12,9 +13,9 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', validateUserId, async (req, res, next) => {
   try {
-    res.json({msg: "here get id"})
+    res.json(req.action);
   } catch(err) { next(err) }
 });
 
