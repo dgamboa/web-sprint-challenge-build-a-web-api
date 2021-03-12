@@ -29,7 +29,7 @@ function validateAction(req, res, next) {
 };
 
 async function validateProjectId(req, res, next) {
-  const { id } = req.params;
+  const id = req.params.id || req.body.project_id;
   try {
     const project = await Projects.get(id);
     if (project) {
