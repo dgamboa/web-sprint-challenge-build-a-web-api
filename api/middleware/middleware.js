@@ -8,7 +8,7 @@ async function validateUserId(req, res, next) {
       req.action = action;
       next();
     } else {
-      res.status(404).json({ message: "action not found" });
+      res.status(404).json({ message: "Action not found" });
     }
   } catch(err) { next(err) }
 };
@@ -17,11 +17,11 @@ function validateUser(req, res, next) {
   const { project_id, description, notes } = req.body;
 
   if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
-    res.status(400).json({ message: "missing action data" });
+    res.status(400).json({ message: "Missing action data" });
   } else if (!project_id || !description || !notes) {
-    res.status(400).json({ message: "missing required field" });
+    res.status(400).json({ message: "Missing required field" });
   } else if (description.length > 128) {
-    res.status(400).json({ message: "description should be 128 characters long max" });
+    res.status(400).json({ message: "Description should be 128 characters long max" });
   } else {
     next();
   }

@@ -27,9 +27,15 @@ router.post('/', validateUser, async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', validateUser, validateUserId, async (req, res, next) => {
+  const { id } = req.params;
+  const actionToUpdate = req.body;
+
   try {
-    res.json({msg: "here put"})
+    const actionUpdated = await Actions.update(id, actionToUpdate);
+    actionUpdated
+      ? res.json(actionUpdated)
+      : res.status(500).json({ message: "Update failed, please try again" })
   } catch(err) { next(err) }
 });
 
