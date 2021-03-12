@@ -139,8 +139,8 @@ After finishing your required elements, you can push your work further. These go
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. The core features of Node.js and Express and why they are useful. **Answer:** 
-1. Understand and explain the use of Middleware. **Answer:** 
-1. The basic principles of the REST architectural style. **Answer:** 
-1. Understand and explain the use of Express Routers. **Answer:** 
-1. Describe tooling used to manually test the correctness of an API. **Answer:** 
+1. The core features of Node.js and Express and why they are useful. **Answer:** The core features of Node include its usage of JS for server-side operations (i.e. one language for both client-side and server-side), its vast npm library of modules and that it's single-threaded. It is also asynchronous and has OS privileges. Simply put, Node is a machine that can run JS programs. 
+1. Understand and explain the use of Middleware. **Answer:** Middleware are functions that get the request and response objects, can perform actions on them (or not), and can either move to the next operation or issue a response.
+1. The basic principles of the REST architectural style. **Answer:** In REST architecture, there are 5 key principles. Everything is a resource. Each resource is accessible via a unique URI. Resources can have multiple representations. Communication happens over a stateless protocol (HTTP). Resource management happens via HTTP methods.
+1. Understand and explain the use of Express Routers. **Answer:** Express is a Node framework that helps developers build web servers to answer HTTP requests. Express Routers are a way of organizing route components and exposing resources through endpoints in an API. Each route listens on a specific resource for requests with a specific HTTP verb.
+1. Describe tooling used to manually test the correctness of an API. **Answer:** There are several tools like Postman, HTTPie, Insomnia, curl and browsers to test the operability of an API. They function similar with ways to construct requests, send them via HTTP and receive responses from the API.
