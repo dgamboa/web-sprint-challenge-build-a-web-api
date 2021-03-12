@@ -17,9 +17,10 @@ router.get('/:id', validateProjectId, async (req, res, next) => {
   res.json(req.project);
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', validateProject, async (req, res, next) => {
   try {
-    res.json({ message: "post project here" })
+    const newProject = await Projects.insert(req.body);
+    res.status(201).json(newProject);
   } catch(err) { next(err) }
 });
 
