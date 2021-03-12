@@ -1,7 +1,7 @@
 // Write your "actions" router here!
 const express = require('express');
 const Actions = require('./actions-model');
-const { validateUserId, validateUser } = require('../middleware/middleware');
+const { validateActionId, validateAction } = require('../middleware/middleware');
 
 const router = express.Router();
 
@@ -13,13 +13,13 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.get('/:id', validateUserId, async (req, res, next) => {
+router.get('/:id', validateActionId, async (req, res, next) => {
   try {
     res.json(req.action);
   } catch(err) { next(err) }
 });
 
-router.post('/', validateUser, async (req, res, next) => {
+router.post('/', validateAction, async (req, res, next) => {
   try {
     const actionToCreate = req.body;
     const actionCreated = await Actions.insert(actionToCreate);
@@ -27,7 +27,7 @@ router.post('/', validateUser, async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.put('/:id', validateUser, validateUserId, async (req, res, next) => {
+router.put('/:id', validateAction, validateActionId, async (req, res, next) => {
   const { id } = req.params;
   const actionToUpdate = req.body;
 
@@ -39,7 +39,7 @@ router.put('/:id', validateUser, validateUserId, async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.delete('/:id', validateUserId, async (req, res, next) => {
+router.delete('/:id', validateActionId, async (req, res, next) => {
   const { id } = req.params;
 
   try {
