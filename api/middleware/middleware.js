@@ -1,6 +1,6 @@
 const Actions = require('../actions/actions-model');
 
-async function validateUserId(req, res, next) {
+async function validateActionId(req, res, next) {
   const { id } = req.params;
   try {
     const action = await Actions.get(id);
@@ -13,7 +13,7 @@ async function validateUserId(req, res, next) {
   } catch(err) { next(err) }
 };
 
-function validateUser(req, res, next) {
+function validateAction(req, res, next) {
   const { project_id, description, notes } = req.body;
 
   if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -28,6 +28,6 @@ function validateUser(req, res, next) {
 };
 
 module.exports = {
-  validateUserId,
-  validateUser
+  validateActionId,
+  validateAction
 }
