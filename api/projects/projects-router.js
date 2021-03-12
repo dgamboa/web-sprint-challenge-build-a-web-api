@@ -8,7 +8,8 @@ const router = express.Router();
 // Actions Endpoints
 router.get('/', async (req, res, next) => {
   try {
-    res.json({ message: "get all here" })
+    const projects = await Projects.get();
+    res.json(projects);
   } catch(err) { next(err) }
 });
 
