@@ -13,10 +13,8 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 });
 
-router.get('/:id', async (req, res, next) => {
-  try {
-    res.json({ message: "get project by id here" })
-  } catch(err) { next(err) }
+router.get('/:id', validateProjectId, async (req, res, next) => {
+  res.json(req.project);
 });
 
 router.post('/', async (req, res, next) => {

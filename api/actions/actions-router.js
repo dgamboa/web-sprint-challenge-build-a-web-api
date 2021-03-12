@@ -14,9 +14,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', validateActionId, async (req, res, next) => {
-  try {
-    res.json(req.action);
-  } catch(err) { next(err) }
+  res.json(req.action);
 });
 
 router.post('/', validateAction, async (req, res, next) => {
