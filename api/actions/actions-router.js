@@ -7,7 +7,8 @@ const router = express.Router();
 // Actions Endpoints
 router.get('/', async (req, res, next) => {
   try {
-    res.json({msg: "here get all"})
+    const actions = await Actions.get();
+    res.json(actions);
   } catch(err) { next(err) }
 });
 
